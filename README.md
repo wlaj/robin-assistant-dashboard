@@ -65,6 +65,6 @@ dashboard/
          └── wsgi.py
 ```
 
-## Licence
+## License
 
 MIT
