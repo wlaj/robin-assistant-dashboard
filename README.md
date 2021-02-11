@@ -15,7 +15,20 @@ Check [Dashboard op Expo](https://expo.io/@wlaj/projects/Pokimotov1) voor meer i
 
 ## Installation
 
-Om de installatie succesvol uit te voeren inclusief de opstart hiervan verwijzen we je door naar ons [Documentatie](https://doc.clickup.com/d/h/4dfbj-36/61c329e7efb5985)
+Begin met het downloaden of clonen van de repo naar een lokale directory. Voeg hierna de benodigde inloggevens toe aan het bestand firebaseConfig.js, deze zijn te vinden op [Firebase](https://console.firebase.google.com/u/0/project/robindashboard/settings/general/web:NjQwN2YwZDgtMDI5NC00NjUzLTkzYmUtNjRjMWEzYTM0OGUx) 
+
+Download de node_modules met
+```
+ $  yarn install
+```
+
+Start nu de development server met
+```
+ $  yarn start
+```
+
+
+Voor mogelijke foutmeldingen en of problemen verwijzen we je door naar ons [Documentatie](https://doc.clickup.com/d/h/4dfbj-36/61c329e7efb5985)
 
 
 ## References
