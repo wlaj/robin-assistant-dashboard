@@ -1,34 +1,83 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { Component } from "react";
+import { Switch, Route, BrowserRouter as Router, Redirect, } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
-// Components
-import NavBar from "./components/layout/NavBar";
+import Edit from './components/Edit';
+import Create from './components/Create';
+import Show from './components/Show';
+import Dashboard from "./components/Dashboard";
+import Home from "./components/Home";
 
-// Pages
-import SignIn from "./components/auth/SignIn";
-import SignUp from "./components/auth/SignUp";
-import Dashboard from "./components/dashboard/Dashboard";
-import Home from "./components/home/Home";
+import Login from './components/Login';
+import Signup from "./components/Signup";
 
-// Secondary packages
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { auth } from './Firebase';
 
-function App() {
+function PrivateRoute({ component: Component, authenticated, ...rest }) {
   return (
-    <>
-      <BrowserRouter>
-        <ToastContainer />
-        <NavBar />
+    <Route
+      {...rest}
+      render={(props) => authenticated === true
+        ? <Component {...props} />
+        : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />}
+    />
+  )
+}
+
+function PublicRoute({ component: Component, authenticated, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={(props) => authenticated === false
+        ? <Component {...props} />
+        : <Redirect to='/dashboard' />}
+    />
+  )
+}
+
+class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      authenticated: false,
+      loading: true,
+    };
+  }
+
+  componentDidMount() {
+    auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          authenticated: true,
+          loading: false,
+        });
+      } else {
+        this.setState({
+          authenticated: false,
+          loading: false,
+        });
+      }
+    })
+  }
+
+  render() {
+    return this.state.loading === true ? <h2>Loading...</h2> : (
+      <Router>
         <Switch>
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home}></Route>
+          <PrivateRoute path="/dashboard" authenticated={this.state.authenticated} component={Dashboard}></PrivateRoute>
+          <PrivateRoute path="/edit/:id" authenticated={this.state.authenticated} component={Edit}></PrivateRoute>
+          <PrivateRoute path="/create" authenticated={this.state.authenticated} component={Create}></PrivateRoute>
+          <PrivateRoute path="/show/:id" authenticated={this.state.authenticated} component={Show}></PrivateRoute>
+          <PublicRoute path="/signup" authenticated={this.state.authenticated} component={Signup}></PublicRoute>
+          <PublicRoute path="/login" authenticated={this.state.authenticated} component={Login}></PublicRoute>
         </Switch>
-      </BrowserRouter>
-    </>
-  );
+
+      </Router>
+    );
+  }
 }
 
 export default App;
