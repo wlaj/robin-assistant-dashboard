@@ -1,7 +1,7 @@
-![Pokimoto](https://i.imgur.com/fJ79z4H.jpg)
+![Pokimoto](https://i.imgur.com/xMLVK1C.jpg)
 
-[![Made with Laravel](https://img.shields.io/badge/Made%20with%20Laravel-000000.svg?style=flat&logo=Laravel&labelColor=000)](https://laravel.com/)
-[![Powered by PHP](https://img.shields.io/badge/Powered%20by%20PHP-000000.svg?style=flat&logo=PHP&labelColor=000)](https://www.php.net/)
+[![Made with React](https://img.shields.io/badge/Made%20with%20React-000000.svg?style=flat&logo=React&labelColor=000)](https://laravel.com/)
+[![Powered by JS](https://img.shields.io/badge/Powered%20by%20JS-000000.svg?style=flat&logo=Javascript&labelColor=000)](https://www.php.net/)
 
 In de planning bevatten zich de meeste links zodat het team gemakkelijk door het project heen kan navigeren, hiervoor gebruiken wij een [Clickup bord](https://share.clickup.com/l/h/4-6885851-1/fde2fdd53ee8d93)
 
@@ -41,7 +41,8 @@ Voor mogelijke foutmeldingen en of problemen verwijzen we je door naar ons [Docu
 
 - **Inloggen**: omschrijving van de feature
 - **Registreren**: omschrijving van de feature
-- **Data via een custom API**: omschrijving van de feature
+- **Data via een serverless database**: omschrijving van de feature
+- **CRUD operatie**: omschrijving van de feature
 
  
 ## User stories
@@ -60,22 +61,22 @@ Hieronder is de structuur van het project te zien.
 
 ```
 dashboard/
-     manage.py
-     db.sqlite3
-      app/
-         ├── admin.py
-         ├── apps.py
-         ├── forms.py
-         ├── models.py
-         └── tests.py
-         └── validators.py
-         └── views.py
-      project/
-         ├── init.py
-         ├── settings.py
-         ├── urls.py
-         ├── asgi.py
-         └── wsgi.py
+     .env
+     .gitignore
+     LICENSE
+     package.json
+     package-lock.json
+     README.md
+      public/
+         ├── favicon.ico
+         ├── index.html
+         ├── manifest.json
+      src/
+         ├── components
+         ├── helpers
+         ├── app.js
+         ├── Firebase.js
+         └── index.js
 ```
 
 ## License
