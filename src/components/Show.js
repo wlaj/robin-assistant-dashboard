@@ -42,23 +42,33 @@ class Show extends Component {
     return (
       <>
       <Header />
-      <div class="container">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-          <h4><Link to="/">Board List</Link></h4>
-            <h3 class="panel-title">
-              {this.state.board.title}
+      <div className="container">
+        <div className="panel panel-default">
+          <div className="panel-heading">
+          <h4><Link to="/dashboard">Task list</Link></h4>
+            <h3 className="panel-title">
+              {this.state.board.taskTitle}
             </h3>
           </div>
-          <div class="panel-body">
+          <div className="panel-body">
             <dl>
-              <dt>Description:</dt>
-              <dd>{this.state.board.description}</dd>
-              <dt>Author:</dt>
-              <dd>{this.state.board.author}</dd>
+              <dt>Subtask 1</dt>
+              <dd>{this.state.board.subTask}</dd>
+              <dt>Subtask 2</dt>
+              <dd>{this.state.board.subTask2}</dd>
+              <dt>Subtask 3</dt>
+              <dd>{this.state.board.subTask2}</dd>
+              <dt>Subtask 4</dt>
+              <dd>{this.state.board.subTask2}</dd>
+              <dt>Subtask 5</dt>
+              <dd>{this.state.board.subTask2}</dd>
+              <dt>Image</dt>
+              <dd><img alt="Content" src={this.state.board.imageUrl}/></dd>
+              <dt>Audio</dt>
+              <dd><audio ref="audio_tag" src={this.state.board.audioUrl} controls/></dd>
             </dl>
-            <Link to={`/edit/${this.state.key}`} class="btn btn-success">Edit</Link>&nbsp;
-            <button onClick={this.delete.bind(this, this.state.key)} class="btn btn-danger">Delete</button>
+            <Link to={`/edit/${this.state.key}`} className="btn btn-success">Edit</Link>&nbsp;
+            <button onClick={this.delete.bind(this, this.state.key)} className="btn btn-danger">Delete</button>
           </div>
         </div>
       </div>

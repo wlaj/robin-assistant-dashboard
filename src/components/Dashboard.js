@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import firebase from '../Firebase';
+import Card from 'react-bootstrap/Card';
+import CardColumns from 'react-bootstrap/CardColumns';
 
-import Header from "./Header";
+import Header from './Header';
 
 class App extends Component {
   constructor(props) {
@@ -10,35 +12,29 @@ class App extends Component {
     this.ref = firebase.firestore().collection('boards');
     this.unsubscribe = null;
     this.state = {
-      boards: []
+      boards: [],
     };
   }
 
   onCollectionUpdate = (querySnapshot) => {
     const boards = [];
     querySnapshot.forEach((doc) => {
-      const { title, description, author } = doc.data();
+      const { taskTitle, subTask, subTask2, subTask3, subTask4, patient } = doc.data();
       boards.push({
         key: doc.id,
         doc, // DocumentSnapshot
-        title,
-        description,
-        author,
+        taskTitle,
+        subTask,
+        subTask2,
+        subTask3,
+        subTask4,
+        patient
       });
     });
     this.setState({
-      boards
-   });
-  }
-
-  delete(id){
-    firebase.firestore().collection('boards').doc(id).delete().then(() => {
-      console.log("Document successfully deleted!");
-      this.props.history.push("/dashboard")
-    }).catch((error) => {
-      console.error("Error removing document: ", error);
+      boards,
     });
-  }
+  };
 
   componentDidMount() {
     this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
@@ -47,38 +43,38 @@ class App extends Component {
   render() {
     return (
       <>
-      <Header />
-      <div class="container">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              Task list
-            </h3>
-          </div>
-          <div class="panel-body">
-            <h4><Link to="/create" class="btn btn-primary">Add Task</Link></h4>
-            <button onClick={(this, this.state.key)} class="btn btn-danger">Delete</button>
-            <table class="table table-stripe">
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Description</th>
-                  <th>Patient</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.boards.map(board =>
-                  <tr>
-                    <td><Link to={`/show/${board.key}`}>{board.title}</Link></td>
-                    <td>{board.description}</td>
-                    <td>{board.author}</td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+        <Header />
+        <div className='container'>
+          <div className='panel panel-default'>
+            <div className='panel-heading'>
+              <h3 className='panel-title'>Task list</h3>
+            </div>
+            <div className='panel-body'>
+              <h4>
+                <Link to='/create' className='btn btn-primary'>
+                  Add Task
+                </Link>
+              </h4>
+              {this.state.boards.map((board) => (
+                <>
+                  <CardColumns>
+                    <Card>
+                      <Card.Body>
+                        <Card.Title>
+                          <Link to={`/show/${board.key}`}>{board.taskTitle}</Link>
+                        </Card.Title>
+                      </Card.Body>
+                    </Card>
+                    <Card style={{ width: '18rem' }}>
+                      <p>{board.subTask}</p>
+                      <p>{board.subTask2}</p>
+                    </Card>
+                  </CardColumns>
+                </>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
       </>
     );
   }

@@ -8,9 +8,11 @@ class Create extends Component {
     super();
     this.ref = firebase.firestore().collection('boards');
     this.state = {
-      title: '',
-      description: '',
-      author: ''
+      taskTitle: '',
+      subTask: '',
+      subTask2: '',
+      subTask3: '',
+      patient: ''
     };
   }
   onChange = (e) => {
@@ -22,17 +24,21 @@ class Create extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { title, description, author } = this.state;
+    const { taskTitle, subTask, subTask2, subTask3, patient } = this.state;
 
     this.ref.add({
-      title,
-      description,
-      author
+      taskTitle,
+      subTask,
+      subTask2,
+      subTask3,
+      patient
     }).then((docRef) => {
       this.setState({
-        title: '',
-        description: '',
-        author: ''
+        taskTitle: '',
+        subTask: '',
+        subTask2: '',
+        subTask3: '',
+        patient: ''
       });
       this.props.history.push("/dashboard")
     })
@@ -42,31 +48,39 @@ class Create extends Component {
   }
 
   render() {
-    const { title, description, author } = this.state;
+    const { taskTitle, subTask, subTask2, subTask3, patient } = this.state;
     return (
-      <div class="container">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">
+      <div className="container">
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">
               Add task
             </h3>
           </div>
-          <div class="panel-body">
-            <h4><Link to="/" class="btn btn-primary">Go back</Link></h4>
+          <div className="panel-body">
+            <h4><Link to="/" className="btn btn-primary">Go back</Link></h4>
             <form onSubmit={this.onSubmit}>
-              <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" class="form-control" name="title" value={title} onChange={this.onChange} placeholder="Title" />
+              <div className="form-group">
+                <label for="taskTitle">Title</label>
+                <input type="text" className="form-control" name="title" value={taskTitle} onChange={this.onChange} placeholder="Title" />
               </div>
-              <div class="form-group">
-                <label for="description">Description</label>
-                <textArea class="form-control" name="description" onChange={this.onChange} placeholder="Description" cols="80" rows="3">{description}</textArea>
+              <div className="form-group">
+                <label for="subTask">Description</label>
+                <textArea className="form-control" name="description" onChange={this.onChange} placeholder="Description" cols="80" rows="3">{subTask}</textArea>
               </div>
-              <div class="form-group">
-                <label for="author">Patient</label>
-                <input type="text" class="form-control" name="author" value={author} onChange={this.onChange} placeholder="Patient" />
+              <div className="form-group">
+                <label for="subTask2">Description</label>
+                <textArea className="form-control" name="description" onChange={this.onChange} placeholder="Description" cols="80" rows="3">{subTask2}</textArea>
               </div>
-              <button type="submit" class="btn btn-success">Submit</button>
+              <div className="form-group">
+                <label for="subTask3">Description</label>
+                <textArea className="form-control" name="description" onChange={this.onChange} placeholder="Description" cols="80" rows="3">{subTask3}</textArea>
+              </div>
+              <div className="form-group">
+                <label for="patient">Patient</label>
+                <input type="text" className="form-control" name="author" value={patient} onChange={this.onChange} placeholder="Patient" />
+              </div>
+              <button type="submit" className="btn btn-success">Submit</button>
             </form>
           </div>
         </div>
