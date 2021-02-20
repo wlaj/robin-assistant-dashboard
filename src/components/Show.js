@@ -49,6 +49,9 @@ class Show extends Component {
             <h3 className="panel-title">
               {this.state.board.taskTitle}
             </h3>
+            <h5 className="panel-title">
+              {this.state.board.patient}
+            </h5>
           </div>
           <div className="panel-body">
             <dl>
@@ -57,11 +60,19 @@ class Show extends Component {
               <dt>Subtask 2</dt>
               <dd>{this.state.board.subTask2}</dd>
               <dt>Subtask 3</dt>
-              <dd>{this.state.board.subTask2}</dd>
+              <dd>{this.state.board.subTask3}</dd>
               <dt>Subtask 4</dt>
-              <dd>{this.state.board.subTask2}</dd>
+              <dd>{this.state.board.subTask4}</dd>
               <dt>Subtask 5</dt>
-              <dd>{this.state.board.subTask2}</dd>
+              <dd>{this.state.board.subTask5}</dd>
+              <dt>Subtask 6</dt>
+              <dd>{this.state.board.subTask6}</dd>
+              <dt>Subtask 7</dt>
+              <dd>{this.state.board.subTask7}</dd>
+              <dt>Subtask 8</dt>
+              <dd>{this.state.board.subTask8}</dd>
+              <dt>Subtask 9</dt>
+              <dd>{this.state.board.subTask9}</dd>
               <dt>Image</dt>
               <dd><img alt="Content" src={this.state.board.imageUrl}/></dd>
               <dt>Audio</dt>

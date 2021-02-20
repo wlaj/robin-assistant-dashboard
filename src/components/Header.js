@@ -27,7 +27,7 @@ function Header() {
           {auth().currentUser ? (
             <div className="navbar-nav">
               <Link className="nav-item nav-link" to="/dashboard">
-                Go to console
+                Go to dashboard
               </Link>
               <button
                 className="btn btn-primary"

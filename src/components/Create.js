@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import firebase from '../Firebase';
 import { Link } from 'react-router-dom';
+
+import Card from 'react-bootstrap/Card';
+import CardColumns from 'react-bootstrap/CardColumns';
 
 class Create extends Component {
 
@@ -12,7 +16,11 @@ class Create extends Component {
       subTask: '',
       subTask2: '',
       subTask3: '',
-      patient: ''
+      subTask4: '',
+      subTask5: '',
+      subTask6: '',
+      patient: '',
+      imageUrl: ''
     };
   }
   onChange = (e) => {
@@ -24,21 +32,29 @@ class Create extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { taskTitle, subTask, subTask2, subTask3, patient } = this.state;
+    const { taskTitle, patient, imageUrl, subTask, subTask2, subTask3, subTask4, subTask5, subTask6 } = this.state;
 
     this.ref.add({
       taskTitle,
       subTask,
       subTask2,
       subTask3,
-      patient
+      subTask4,
+      subTask5,
+      subTask6,
+      patient,
+      imageUrl
     }).then((docRef) => {
       this.setState({
         taskTitle: '',
         subTask: '',
         subTask2: '',
         subTask3: '',
-        patient: ''
+        subTask4: '',
+        subTask5: '',
+        subTask6: '',
+        patient: '',
+        imageUrl: ''
       });
       this.props.history.push("/dashboard")
     })
@@ -48,39 +64,75 @@ class Create extends Component {
   }
 
   render() {
-    const { taskTitle, subTask, subTask2, subTask3, patient } = this.state;
+    const { taskTitle, patient, imageUrl, subTask, subTask2, subTask3, subTask4, subTask5, subTask6 } = this.state;
     return (
-      <div className="container">
-        <div className="panel panel-default">
-          <div className="panel-heading">
-            <h3 className="panel-title">
-              Add task
+      <div class="container">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              ADD BOARD
             </h3>
           </div>
-          <div className="panel-body">
-            <h4><Link to="/" className="btn btn-primary">Go back</Link></h4>
+          <div class="panel-body">
+            <h4><Link to="/" class="btn btn-primary">Go back</Link></h4>
             <form onSubmit={this.onSubmit}>
-              <div className="form-group">
-                <label for="taskTitle">Title</label>
-                <input type="text" className="form-control" name="title" value={taskTitle} onChange={this.onChange} placeholder="Title" />
+              <div class="form-group">
+                <label for="taskTitle">Title:</label>
+                <input type="text" class="form-control" name="taskTitle" value={taskTitle} onChange={this.onChange} placeholder="taskTitle" />
               </div>
-              <div className="form-group">
-                <label for="subTask">Description</label>
-                <textArea className="form-control" name="description" onChange={this.onChange} placeholder="Description" cols="80" rows="3">{subTask}</textArea>
-              </div>
-              <div className="form-group">
-                <label for="subTask2">Description</label>
-                <textArea className="form-control" name="description" onChange={this.onChange} placeholder="Description" cols="80" rows="3">{subTask2}</textArea>
-              </div>
-              <div className="form-group">
-                <label for="subTask3">Description</label>
-                <textArea className="form-control" name="description" onChange={this.onChange} placeholder="Description" cols="80" rows="3">{subTask3}</textArea>
-              </div>
-              <div className="form-group">
+              <div class="form-group">
                 <label for="patient">Patient</label>
-                <input type="text" className="form-control" name="author" value={patient} onChange={this.onChange} placeholder="Patient" />
+                <input type="text" class="form-control" name="patient" value={patient} onChange={this.onChange} placeholder="Patient" />
               </div>
-              <button type="submit" className="btn btn-success">Submit</button>
+              <div class="form-group">
+                <label for="imageUrl">Image</label>
+                <input type="text" class="form-control" name="imageUrl" value={imageUrl} onChange={this.onChange} placeholder="imageUrl" />
+              </div>
+              <CardColumns>
+              <div class="form-group inline">
+                <Card>
+                <Card.Body>
+                <input type="text" class="form-control" name="subTask" value={subTask} onChange={this.onChange} placeholder="subTask" />
+                </Card.Body>
+                </Card>
+              </div>
+              <div class="form-group inline">
+                <Card>
+                <Card.Body>
+                <input type="text" class="form-control" name="subTask2" value={subTask2} onChange={this.onChange} placeholder="subTask2" />
+                </Card.Body>
+                </Card>
+              </div>
+              <div class="form-group inline">
+                <Card>
+                <Card.Body>
+                <input type="text" class="form-control" name="subTask3" value={subTask3} onChange={this.onChange} placeholder="subTask3" />
+                </Card.Body>
+                </Card>
+              </div>
+              <div class="form-group inline">
+                <Card>
+                <Card.Body>
+                <input type="text" class="form-control" name="subTask4" value={subTask4} onChange={this.onChange} placeholder="subTask4" />
+                </Card.Body>
+                </Card>
+              </div>
+              <div class="form-group inline">
+                <Card>
+                <Card.Body>
+                <input type="text" class="form-control" name="subTask5" value={subTask5} onChange={this.onChange} placeholder="subTask5" />
+                </Card.Body>
+                </Card>
+              </div>
+              <div class="form-group inline">
+                <Card>
+                <Card.Body>
+                <input type="text" class="form-control" name="subTask6" value={subTask6} onChange={this.onChange} placeholder="subTask6" />
+                </Card.Body>
+                </Card>
+              </div>
+              </CardColumns>
+              <button type="submit" class="btn btn-success">Submit</button>
             </form>
           </div>
         </div>

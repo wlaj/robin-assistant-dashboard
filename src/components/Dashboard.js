@@ -4,6 +4,8 @@ import firebase from '../Firebase';
 import Card from 'react-bootstrap/Card';
 import CardColumns from 'react-bootstrap/CardColumns';
 
+import '../App.scss';
+
 import Header from './Header';
 
 class App extends Component {
@@ -19,16 +21,34 @@ class App extends Component {
   onCollectionUpdate = (querySnapshot) => {
     const boards = [];
     querySnapshot.forEach((doc) => {
-      const { taskTitle, subTask, subTask2, subTask3, subTask4, patient } = doc.data();
+      const { taskTitle, patient, subTask, subTask2, subTask3, subTask4, subTask5, subTask6, subTask7, subTask8, subTask9, subTask10,
+       subTask11, subTask12, subTask13, subTask14, subTask15, subTask16, subTask17, subTask18, subTask19, subTask20, subTask21 } = doc.data();
       boards.push({
         key: doc.id,
         doc, // DocumentSnapshot
         taskTitle,
+        patient,
         subTask,
         subTask2,
         subTask3,
         subTask4,
-        patient
+        subTask5,
+        subTask6,
+        subTask7,
+        subTask8,
+        subTask9,
+        subTask10,
+        subTask11,
+        subTask12,
+        subTask13,
+        subTask14,
+        subTask15,
+        subTask16,
+        subTask17,
+        subTask18,
+        subTask19,
+        subTask20,
+        subTask21,
       });
     });
     this.setState({
@@ -66,8 +86,29 @@ class App extends Component {
                       </Card.Body>
                     </Card>
                     <Card style={{ width: '18rem' }}>
+                    <Card.Body>
                       <p>{board.subTask}</p>
                       <p>{board.subTask2}</p>
+                      <p>{board.subTask3}</p>
+                      <p>{board.subTask4}</p>
+                      <p>{board.subTask5}</p>
+                      <p>{board.subTask6}</p>
+                      <p>{board.subTask7}</p>
+                      <p>{board.subTask8}</p>
+                      <p>{board.subTask9}</p>
+                      <p>{board.subTask10}</p>
+                      <p>{board.subTask11}</p>
+                      <p>{board.subTask12}</p>
+                      <p>{board.subTask13}</p>
+                      <p>{board.subTask14}</p>
+                      <p>{board.subTask15}</p>
+                      <p>{board.subTask16}</p>
+                      <p>{board.subTask17}</p>
+                      <p>{board.subTask18}</p>
+                      <p>{board.subTask19}</p>
+                      <p>{board.subTask20}</p>
+                      <p>{board.subTask21}</p>
+                      </Card.Body>
                     </Card>
                   </CardColumns>
                 </>
