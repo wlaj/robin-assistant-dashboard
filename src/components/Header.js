@@ -5,10 +5,13 @@ import { auth } from "../Firebase";
 function Header() {
   return (
     <header>
-      <nav className="navbar navbar-expand-md navbar-light bg-light">
+      <nav className="navbar navbar-expand-md navbar-light">
         <Link className="navbar-brand" to="/">
           Robin Dashboard
         </Link>
+         <div className="nav-item nav-link">
+                Making lives easier
+        </div>
         <button
           className="navbar-toggler"
           type="button"
@@ -38,10 +41,17 @@ function Header() {
             </div>
           ) : (
             <div className="navbar-nav">
+               <Link className="nav-item nav-link" to="/login">
+                More info
+              </Link>
+              <Link className="nav-item nav-link" to="/login">
+                About us
+              </Link>
+              <div Style="border-left:1px solid lightgrey;height:2em;margin-top:0.3em"></div>
               <Link className="nav-item nav-link" to="/login">
                 Sign In
               </Link>
-              <Link className="nav-item nav-link" to="/signup">
+              <Link className="btn btn-primary" to="/signup">
                 Sign Up
               </Link>
             </div>

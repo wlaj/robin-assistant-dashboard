@@ -71,7 +71,7 @@ class App extends Component {
             </div>
             <div className='panel-body'>
               <h4>
-                <Link to='/create' className='btn btn-primary'>
+                <Link to='/create' className='btn btn-secondary'>
                   Add Task
                 </Link>
               </h4>
@@ -108,6 +108,13 @@ class App extends Component {
                       <p>{board.subTask19}</p>
                       <p>{board.subTask20}</p>
                       <p>{board.subTask21}</p>
+                      </Card.Body>
+                    </Card>
+                    <Card>
+                      <Card.Body>
+                        <Card.Title>
+                          <Link to={`/show/${board.key}`}>{board.patient}</Link>
+                        </Card.Title>
                       </Card.Body>
                     </Card>
                   </CardColumns>
