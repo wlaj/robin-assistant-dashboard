@@ -1,0 +1,141 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F8FBF9;
+  @media (min-width: 576px) {
+    :is(.home-content-robin-service, .home-content-robin-card-deck, home-content-robin-service, .home-content-robin-info-card ) {
+      padding-top: 5em;
+    }
+  }
+}
+
+.home-content-robin-card-deck{
+  .card-title {
+      color: #EF5585;
+  }
+}
+
+.small-text {
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+  }
+  p {
+    font-size: 19px;
+  }
+  .lead {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
+}
+
+.medium-text {
+  h1 {
+    font-size: 44px;
+    font-weight: 700;
+  }
+  p {
+    font-size: 24px;
+  }
+  .lead {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
+}
+
+.home-content-header {
+  background-color: #5879bc;
+  background-size: cover;
+  .jumbotron {
+    color: #F8FBF9;
+    text-align: center;
+  }
+  @media (min-width: 576px) {
+    .jumbotron {
+      height: 380px;
+    }
+  }
+}
+
+.home-content-cards {
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0.9;
+    padding: 2rem 3rem;
+  }
+  .button-group {
+    padding: 10px;
+    margin: auto;
+    a {
+      padding: 9px 30px;
+    }
+  }
+  @media (min-width: 576px) {
+    .card-deck {
+      margin-top: -100px;
+      margin-left: 140px;
+      margin-right: 140px;
+    }
+    .card {
+      display: flex;
+      flex-direction: row;
+      padding: 10px 0;
+      border-radius: 10px;
+      background-color: #F8FBF9;
+    }
+    .button-group {
+      padding: 40px;
+      margin: auto;
+      a {
+        padding: 9px 30px;
+      }
+    }
+  }
+}
+
+.home-content-robin-service {
+  .jumbotron {
+    display: flex;
+    flex-direction: row;
+    img {
+      flex: 0.5 auto;
+      width: 50%;
+    }
+    :is(h1, p ) {
+      max-width: 65%;
+    }
+    :is(h1) {
+      padding-bottom: 2rem;
+      color: #64C29C;
+    }
+    @media (min-width: 576px) {
+      img {
+        margin-top: -90px;
+      }
+    }
+  }
+}
+
+.home-content-robin-info-card {
+  .card {
+     display: flex;
+     justify-content: space-between;
+     flex-direction: row;
+     align-items: center;
+     height: 7em;
+     padding: 5rem 3rem;
+     p {
+       color: white;
+       font-size: 20px;
+       max-width: 65%;
+     }
+     a {
+       padding: 16px 50px;
+     }
+  }
+}

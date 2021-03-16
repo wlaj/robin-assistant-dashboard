@@ -1,6 +1,9 @@
 import React from "react";
+import { Container } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { auth } from "../Firebase";
+
+import '../public/scss/Header.scss';
 
 function Header() {
   return (
@@ -40,12 +43,19 @@ function Header() {
               </button>
             </div>
           ) : (
+            <>
             <div className="navbar-nav">
                <Link className="nav-item nav-link" to="/login">
-                More info
+                What is Robin
               </Link>
               <Link className="nav-item nav-link" to="/login">
-                About us
+                Benefits
+              </Link>
+              <Link className="nav-item nav-link" to="/login">
+                How does it work?
+              </Link>
+              <Link className="nav-item nav-link" to="/login">
+                FAQ
               </Link>
               <div Style="border-left:1px solid lightgrey;height:2em;margin-top:0.3em"></div>
               <Link className="nav-item nav-link" to="/login">
@@ -55,6 +65,7 @@ function Header() {
                 Sign Up
               </Link>
             </div>
+            </>
           )}
         </div>
       </nav>

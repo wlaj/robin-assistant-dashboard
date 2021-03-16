@@ -3,14 +3,14 @@ import { Switch, Route, BrowserRouter as Router, Redirect, } from "react-router-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 
-import Edit from './components/Edit';
-import Create from './components/Create';
-import Show from './components/Show';
-import Dashboard from "./components/Dashboard";
-import Home from "./components/Home";
+import Edit from './screens/Edit';
+import Create from './screens/Create';
+import Show from './screens/Show';
+import Dashboard from "./screens/Dashboard";
+import Home from "./screens/Home";
 
-import Login from './components/Login';
-import Signup from "./components/Signup";
+import Login from './screens/Login';
+import Signup from "./screens/Signup";
 
 import { auth } from './Firebase';
 
