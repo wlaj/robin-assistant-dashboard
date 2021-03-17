@@ -47,7 +47,7 @@ Voor mogelijke foutmeldingen en of problemen verwijzen we je door naar ons [Docu
  
 ## User stories
 
-Voor het project is het noodzakelijk user stories op te stellen, met **[deze link]()** zijn deze duidelijk in te zien.
+Voor het project is het noodzakelijk user stories op te stellen, met **[deze link](https://doc.clickup.com/p/h/4dfbj-120/ef452d00afdfd7b)** zijn deze duidelijk in te zien.
 
 
 ## Dependencies
