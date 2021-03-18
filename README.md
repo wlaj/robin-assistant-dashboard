@@ -27,6 +27,11 @@ Start nu de development server met
  $  yarn start
 ```
 
+Om het project to hosten gebruik je
+```
+ $  npm run build
+```
+
 
 Voor mogelijke foutmeldingen en of problemen verwijzen we je door naar ons [Documentatie](https://doc.clickup.com/d/h/4dfbj-36/61c329e7efb5985)
 
