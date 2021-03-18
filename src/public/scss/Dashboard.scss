@@ -1,0 +1,46 @@
+.dashboard-content {
+    max-height: 100vh;
+    .panel-heading-subtitle {
+        font-size: 20px;
+        color: #476282;
+    }
+    .panel-heading {
+        margin-bottom: 2em;
+        padding-top: 2em;
+        .card {
+            border-radius: 8px;
+        }
+    }
+    .panel-body {
+        .card {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            img {
+                width: 50px;
+                padding-right: 1rem;
+            }
+        }
+        .card-title {
+            a {
+                color: #5779BC;
+            }
+        }
+        h4 {
+            margin-bottom: 2em;
+        }
+    }
+}
+
+.dashboard-content-header {
+    background-color: #56B991;
+    background-size: cover;
+    .jumbotron {
+      color: #F8FBF9;
+      text-align: center;
+    }
+    @media (min-width: 576px) {
+      .jumbotron {
+        height: 100%;
+      }
+    }
+  }

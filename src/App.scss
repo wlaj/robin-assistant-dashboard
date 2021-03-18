@@ -15,10 +15,18 @@ body, html {
 }
 
 .btn-primary {
-  background-color: #5879BC;
+  background-color: #56B991;
   border: none;
   :hover {
-    background-color: #5879bb;
+    background-color: #56B991;
+  }
+}
+
+.btn-outline-primary {
+  border: 1px solid #56B991;
+  color: #56B991;
+  :hover {
+    background-color: #56B991;
   }
 }
 
@@ -45,5 +53,6 @@ header {
     padding-right: 20px !important; 
     padding-left: 20px !important;
     color: rgba(0,0,0,.7);
+    font-weight: 500;
   }
 }

@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import CardColumns from 'react-bootstrap/CardColumns';
 
+import Sidebar from '../components/Sidebar';
+
 class Create extends Component {
 
   constructor() {
@@ -66,6 +68,8 @@ class Create extends Component {
   render() {
     const { taskTitle, patient, imageUrl, subTask, subTask2, subTask3, subTask4, subTask5, subTask6 } = this.state;
     return (
+      <>
+      <Sidebar />
       <div class="container">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -74,7 +78,6 @@ class Create extends Component {
             </h3>
           </div>
           <div class="panel-body">
-            <h4><Link to="/dashboard" class="btn btn-primary">Go back</Link></h4>
             <form onSubmit={this.onSubmit}>
               <div class="form-group">
                 <label for="taskTitle">Title:</label>
@@ -137,6 +140,7 @@ class Create extends Component {
           </div>
         </div>
       </div>
+      </>
     );
   }
 }

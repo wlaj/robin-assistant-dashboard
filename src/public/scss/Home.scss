@@ -4,15 +4,9 @@ body {
   padding: 0;
   background-color: #F8FBF9;
   @media (min-width: 576px) {
-    :is(.home-content-robin-service, .home-content-robin-card-deck, home-content-robin-service, .home-content-robin-info-card ) {
+    :is(.home-content-robin-service, .home-content-robin-card-deck, home-content-robin-service, .home-content-robin-info-card, .home-content-robin-partners ) {
       padding-top: 5em;
     }
-  }
-}
-
-.home-content-robin-card-deck{
-  .card-title {
-      color: #EF5585;
   }
 }
 
@@ -47,7 +41,7 @@ body {
 }
 
 .home-content-header {
-  background-color: #5879bc;
+  background-color: #56B991;
   background-size: cover;
   .jumbotron {
     color: #F8FBF9;
@@ -55,6 +49,7 @@ body {
   }
   @media (min-width: 576px) {
     .jumbotron {
+      margin-top: 3.4em;
       height: 380px;
     }
   }
@@ -104,7 +99,7 @@ body {
     flex-direction: row;
     img {
       flex: 0.5 auto;
-      width: 50%;
+      width: 30%;
     }
     :is(h1, p ) {
       max-width: 65%;
@@ -121,6 +116,31 @@ body {
   }
 }
 
+.home-content-robin-card-deck{
+  :is(h1) {
+    padding-bottom: 2rem;
+    color: #64C29C;
+    text-align: center;
+  }
+  .card {
+    background-color: #F8FBF9;
+    border: none;
+    img {
+      width: 50%;
+      background-color: #EEF1F8;
+      border-radius: 999px;
+      padding: 50px;
+    }
+    :is(img, .card-title, card-text) {
+      text-align: center;
+      align-self: center;
+    }
+    .card-title {
+      color: #EF5585;
+    }
+  }
+}
+
 .home-content-robin-info-card {
   .card {
      display: flex;
@@ -129,6 +149,8 @@ body {
      align-items: center;
      height: 7em;
      padding: 5rem 3rem;
+     border-radius: 12px;
+     background-position: center;
      p {
        color: white;
        font-size: 20px;
@@ -136,6 +158,40 @@ body {
      }
      a {
        padding: 16px 50px;
+       border: 1px solid white;
+       border-radius: 12px;
      }
+  }
+}
+
+.home-content-robin-partners {
+  .card {
+    border: none;
+    background-color: #F8FBF9;
+    img {
+      width: 7em;
+      }
+    }
+    .small-text h1 {
+      color: #64C29C;
+      padding-bottom: 1em;
+    }
+}
+
+.home-content-robin-footer {
+  .card {
+    border: none;
+    background-color: transparent;
+  }
+  .card-body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 60%;
+  }
+  .card-link {
+    .left {
+      margin-right: -18em;
+    }
   }
 }

@@ -6,4 +6,12 @@ body, html {
 
 .navbar {
     background-color: #F8FBF9;
+    .nav-slogan {
+        visibility: hidden;
+    }
+    @media (min-width: 576px) {
+        .nav-slogan {
+          display: visible !important;
+        }
+      }
 }

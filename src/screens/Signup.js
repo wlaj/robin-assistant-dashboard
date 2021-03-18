@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { signup } from '../helpers/auth';
 
-export default class SignUp extends Component {
+import '../public/scss/Login.scss';
 
+import loginbackground from '../public/img/background-image-login.svg';
+
+export default class SignUp extends Component {
   constructor() {
     super();
     this.state = {
@@ -17,7 +20,7 @@ export default class SignUp extends Component {
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   }
 
@@ -33,27 +36,62 @@ export default class SignUp extends Component {
 
   render() {
     return (
-      <div className="container">
-        <form className="mt-5 py-5 px-5" autoComplete="off" onSubmit={this.handleSubmit}>
-          <h1>
-            Sign Up 
-          <Link className="title" to="/">Robin</Link>
-          </h1>
-          <p className="lead">Fill in the form below to create an account.</p>
-          <div className="form-group">
-            <input className="form-control" placeholder="Email" name="email" type="email" onChange={this.handleChange} value={this.state.email}></input>
+      <>
+        <div
+          className='login-content'
+          style={{ backgroundImage: 'url(' + loginbackground + ')' }}
+        >
+          <div className='login-content-container'>
+            <div className='container'>
+              <form
+                className='mt-5 py-3 px-5'
+                autoComplete='off'
+                onSubmit={this.handleSubmit}
+              >
+                <h1>
+                  Create account
+                </h1>
+                <p className='lead'>
+                  Already have an account? <Link className='title' to='/login'>
+                     Login
+                  </Link>
+                </p>
+                <div className='form-group'>
+                  <input
+                    className='form-control'
+                    placeholder='Email'
+                    name='email'
+                    type='email'
+                    onChange={this.handleChange}
+                    value={this.state.email}
+                  ></input>
+                </div>
+                <div className='form-group'>
+                  <input
+                    className='form-control'
+                    placeholder='Password'
+                    name='password'
+                    onChange={this.handleChange}
+                    value={this.state.password}
+                    type='password'
+                  ></input>
+                </div>
+                <div className='form-group'>
+                  {this.state.error ? (
+                    <p className='text-danger'>{this.state.error}</p>
+                  ) : null}
+                  <button className='btn btn-primary px-5'>
+                    Sign up
+                  </button>
+                </div>
+                <p>
+                <Link to='/login'>Forgot your password?</Link>
+                </p>
+              </form>
+            </div>
           </div>
-          <div className="form-group">
-            <input className="form-control" placeholder="Password" name="password" onChange={this.handleChange} value={this.state.password} type="password"></input>
-          </div>
-          <div className="form-group">
-            {this.state.error ? <p className="text-danger">{this.state.error}</p> : null}
-            <button className="btn btn-primary rounded-pill px-5">Sign up</button>
-          </div>
-          <hr></hr>
-          <p>Already have an account? <Link to="/login">Login</Link></p>
-        </form>
-      </div>
-    )
+        </div>
+      </>
+    );
   }
 }

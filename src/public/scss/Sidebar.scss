@@ -1,0 +1,33 @@
+#header {
+  position: absolute;
+  width: 220px;
+}
+#header .pro-sidebar {
+  height: 100vh;
+}
+#header .closemenu {
+  color: #e3969f;
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+  line-height: 20px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 22px;
+  top: 55px;
+  cursor: pointer;
+}
+ .pro-sidebar {
+  width: 220px;
+  position: fixed;
+  background-color: #e3969f;
+}
+#header .pro-sidebar.collapsed {
+  width: 80px;
+  min-width: 80px;
+}
+.pro-sidebar {
+  .pro-sidebar-header {
+    padding: 20px;
+  }
+}

@@ -8,11 +8,11 @@ import '../public/scss/Header.scss';
 function Header() {
   return (
     <header>
-      <nav className="navbar navbar-expand-md navbar-light">
+      <nav className="navbar navbar-expand-md navbar-light fixed-top">
         <Link className="navbar-brand" to="/">
-          Robin Dashboard
+          Robin Assistant
         </Link>
-         <div className="nav-item nav-link">
+         <div className="nav-item nav-link nav-slogan">
                 Making lives easier
         </div>
         <button
